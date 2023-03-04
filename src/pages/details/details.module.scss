@@ -1,0 +1,33 @@
+.page-body{
+    width: 55%;
+}
+
+.favorite-btn{
+    width: fit-content;
+    padding: 5px 5px;
+    border: 1px solid var(--bg);
+}
+.favorite-btn:hover{
+    cursor: pointer;
+    border: 1px solid var(--warning);
+}
+
+.marked {
+    background-color: var(--warning);
+}
+
+.pill {
+    border-color: var(--bg-secondary);
+    border: 1px solid;
+    color: var(--font-color);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    border-radius: 16px;
+}
+
+.recommendations {
+    width: 25%;
+}

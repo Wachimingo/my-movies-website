@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  align-self: center;
+  text-align: center;
+  width: 100%;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.page {
+  position: relative;
+  top: 10vh;
+}
