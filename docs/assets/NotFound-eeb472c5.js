@@ -1,1 +1,0 @@
-import{j as t,P as s,M as e}from"./index-c5f48768.js";const n="_text_k53jn_1",o={text:n},a=()=>t.jsx(s,{children:t.jsx(e,{children:t.jsx("h1",{className:o.text,children:"404 Not Found"})})});export{a as NotFound,a as default};

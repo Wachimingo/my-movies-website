@@ -1,1 +1,0 @@
-import{u as r,j as a,C as c,c as d}from"./index-c5f48768.js";const u=({movie:s,className:e,children:t})=>{const i=r(),o=n=>{i(`/details/${n}`)};return a.jsxs(c,{onClick:()=>o(s.id),className:e,children:[t,a.jsx(d,{movie:s})]})};export{u as MovieCard,u as default};
