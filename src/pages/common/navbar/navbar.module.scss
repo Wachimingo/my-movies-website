@@ -21,11 +21,12 @@
   width: 100%;
   position: absolute;
   top: 5vh;
-  left: 50;
+  left: -7vw;
   flex-direction: column;
   text-align: center;
   align-items: center;
 }
+
 .column > li {
   padding-bottom: 2vh;
 }
@@ -90,7 +91,7 @@ a:hover {
   display: none !important;
 }
 
-@media only screen and (min-width: 522px) {
+@media only screen and (min-width: 500px) {
   .hamburguer {
     display: none;
   }

@@ -14,16 +14,15 @@ export const Navbar = () => {
     if (query.trim() === "") return;
     navigate(`/search/${query.trim()}`);
   };
-
+  const resizedWindow = (x: any) => {
+    setIsOpen(x.matches);
+    setMatch(x.matches);
+  };
   useEffect(() => {
-    const x = window.matchMedia("(min-width: 522px)");
-    const resizedWindow = (x: any) => {
-      setIsOpen(x.matches);
-      setMatch(x.matches);
-    };
-
+    const x = window.matchMedia("(min-width: 500px)");
+    resizedWindow(x);
     x.addEventListener("change", resizedWindow);
-  }, [match, open]);
+  }, []);
 
   return (
     <nav className={styles["nav"]}>
@@ -56,12 +55,7 @@ export const Navbar = () => {
         <Div space='between' row fit className={styles["right"]}>
           <Switch />
           <svg
-            onClick={() =>
-              setIsOpen((prev) => {
-                console.log(prev);
-                return !prev;
-              })
-            }
+            onClick={() => setIsOpen((prev) => !prev)}
             className={`${styles["hamburguer"]}`}
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 448 512'

@@ -1,0 +1,1 @@
+import{j as a,D as r}from"./index-c5f48768.js";const e="_card_7zwdu_1",c={card:e,"container-container":"_container-container_7zwdu_11"},d=({children:n,onClick:s,className:t})=>a.jsx(r,{className:`${c.card} ${t}`,column:!0,onClick:s,children:a.jsx(r,{className:c["card-container"],children:n})});export{d as Card,d as default};

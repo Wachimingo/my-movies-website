@@ -81,7 +81,7 @@ export const Details = () => {
       <Section>
         <h2>Recommendations:</h2>
         {recommendations ? (
-          <Div row>
+          <Div row space='around'>
             {recommendations?.map(({ id, title, poster_path }) => {
               return <MovieCard key={title + id} className={styles["recommendations"]} movie={{ id, title, poster_path }} />;
             })}
