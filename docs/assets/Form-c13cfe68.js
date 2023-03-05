@@ -1,0 +1,1 @@
+import{j as s}from"./index-b5b28e23.js";import{s as t}from"./form.module-08abe118.js";const a=({children:m,...r})=>s.jsxs("form",{className:t.form,...r,children:[m,s.jsx("input",{className:t["submit-input"],type:"submit"})]});export{a as Form,a as default};

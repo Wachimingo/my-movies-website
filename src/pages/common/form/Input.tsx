@@ -2,10 +2,13 @@ import { Div } from "../containers";
 import styles from "./form.module.scss";
 
 type InputProps = {
-  id: string;
-  fieldName: string;
+  id?: string;
+  type?: string;
+  fieldName?: string;
   action: Function;
-  value: string;
+  value?: string;
+  required?: boolean;
+  min?: string;
   props?: any;
 };
 

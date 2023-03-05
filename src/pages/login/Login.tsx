@@ -14,7 +14,7 @@ export const Login = () => {
     }
   }, [navigate]);
 
-  const submitLoginHandler = async (e: FormDataEvent) => {
+  const submitLoginHandler = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       if (!emailRe.test(email!)) throw Error("Invalid email format");
@@ -41,7 +41,7 @@ export const Login = () => {
       </Main>
       <Section>
         <h2>Login</h2>
-        <Form id={"login-form"} onSubmit={(e: FormDataEvent) => submitLoginHandler(e)}>
+        <Form id={"login-form"} onSubmit={(e: React.FormEvent) => submitLoginHandler(e)}>
           <Input type='text' id='email' fieldName='Email' action={setEmail} required />
           <Input type='password' id='password' fieldName='Password' action={setPassword} min='6' required />
         </Form>

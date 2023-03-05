@@ -1,7 +1,9 @@
 import styles from "./form.module.scss";
 
 type FormProps = {
+  id?: string;
   children: React.ReactNode;
+  onSubmit?: React.FormEventHandler;
   props?: any;
 };
 
