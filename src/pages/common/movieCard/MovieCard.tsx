@@ -1,8 +1,15 @@
-import { Card } from "../../common";
 import { useNavigate } from "react-router-dom";
+import { Card } from "../card";
 import { Movie } from "../movie";
+import { MovieType } from "../types";
 
-export const MovieCard = ({ movie, className, children }: any) => {
+type MovieCardProps = {
+  movie: MovieType;
+  className?: string;
+  children?: React.ReactNode;
+};
+
+export const MovieCard = ({ movie, className, children }: MovieCardProps) => {
   const navigate = useNavigate();
 
   const openMovieDetails = (id: string) => {
@@ -16,3 +23,5 @@ export const MovieCard = ({ movie, className, children }: any) => {
     </Card>
   );
 };
+
+export default MovieCard;

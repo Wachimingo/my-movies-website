@@ -1,1 +1,3 @@
-export * from "./Movie";
+import { lazy } from "react";
+
+export const Movie = lazy(() => import("./Movie"));

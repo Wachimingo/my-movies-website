@@ -1,1 +1,3 @@
-export * from "./Details";
+import { lazy } from "react";
+
+export const Details = lazy(() => import("./Details"));

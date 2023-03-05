@@ -1,5 +1,5 @@
 export type ButtonProps = {
-  children: any;
+  children: React.ReactNode;
   success?: boolean;
   info?: boolean;
   error?: boolean;

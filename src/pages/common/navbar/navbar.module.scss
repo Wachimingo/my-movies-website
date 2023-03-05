@@ -84,10 +84,10 @@ a:hover {
   top: 2vh;
 }
 .show {
-  display: contents;
+  display: contents !important;
 }
 .hide{
-  display: none;
+  display: none !important;
 }
 
 @media only screen and (min-width: 522px) {

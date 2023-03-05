@@ -1,11 +1,11 @@
 //@ts-nocheck
 export type ContainerProps = {
-  children?: any;
+  children?: React.ReactNode;
   column?: boolean;
   row?: boolean;
   space?: string;
   fit?: boolean;
   className?: string;
-  onClick?: any;
-  role?: any;
+  onClick?: React.MouseEventHandler<HTMLElement>;
+  role?: string;
 };

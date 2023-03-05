@@ -1,7 +1,15 @@
-import React from "react";
 import { Div } from "../containers";
 import styles from "./form.module.scss";
-export const Input = ({ id, fieldName, action, value, ...props }: any): JSX.Element => {
+
+type InputProps = {
+  id: string;
+  fieldName: string;
+  action: Function;
+  value: string;
+  props?: any;
+};
+
+export const Input = ({ id, fieldName, action, value, ...props }: InputProps): JSX.Element => {
   return (
     <Div column>
       <label htmlFor={id}>{fieldName}</label>
@@ -9,3 +17,5 @@ export const Input = ({ id, fieldName, action, value, ...props }: any): JSX.Elem
     </Div>
   );
 };
+
+export default Input;

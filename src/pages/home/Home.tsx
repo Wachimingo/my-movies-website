@@ -3,6 +3,7 @@ import { Main, Page, Section } from "../common";
 import { MovieCard } from "../common/movieCard";
 import { baseUrl, type, apiKey } from "../constants";
 import { Loading } from "../common/loading";
+import type { MovieType } from "../common/types";
 
 export const Home = () => {
   const [movies, setMovies] = useState<any>(undefined);
@@ -20,7 +21,7 @@ export const Home = () => {
       </Main>
       {movies ? (
         <Section row>
-          {movies?.map((movie: any) => {
+          {movies?.map((movie: MovieType) => {
             return <MovieCard key={movie.title} movie={movie} />;
           })}
         </Section>

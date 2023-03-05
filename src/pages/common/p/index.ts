@@ -1,1 +1,3 @@
-export * from "./P";
+import { lazy } from "react";
+
+export const P = lazy(() => import("./P"));

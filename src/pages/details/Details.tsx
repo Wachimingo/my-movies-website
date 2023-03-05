@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
 import { Star, Div, Main, Movie, MovieCard, Page, Section, Loading } from "../common";
-import { baseUrl, apiKey } from "../constants";
 import { useParams } from "react-router-dom";
 import styles from "./details.module.scss";
+import { baseUrl, apiKey } from "../constants";
+import type { MovieType } from "../common/types";
+
+type Actors = {
+  name: string;
+};
 
 export const Details = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState<any>(undefined);
-  const [actors, setActors] = useState<any>(undefined);
-  const [isMarked, setIsMarked] = useState<any>(false);
-  const [recommendations, setRecommendations] = useState<any>(undefined);
+  const [movie, setMovie] = useState<MovieType | undefined>(undefined);
+  const [actors, setActors] = useState<Actors[] | undefined>(undefined);
+  const [isMarked, setIsMarked] = useState<boolean>(false);
+  const [recommendations, setRecommendations] = useState<MovieType[] | undefined>(undefined);
 
   useEffect(() => {
     fetch(`${baseUrl}/movie/${id}?api_key=${apiKey}`)
@@ -26,7 +31,7 @@ export const Details = () => {
       .then((data) => setRecommendations(data.results));
   }, [id]);
 
-  const setAsFavorite = (movie: any) => {
+  const setAsFavorite = (movie: MovieType) => {
     if (isMarked) {
       const newMovie = {
         id: movie.id,
@@ -49,7 +54,7 @@ export const Details = () => {
       <Main>
         {movie ? (
           <Movie movie={movie}>
-            <Div row className={`${styles["favorite-btn"]} ${styles[isMarked ? "" : "marked"]}`} role='button' onClick={() => setAsFavorite(movie)}>
+            <Div row fit className={`${styles["favorite-btn"]} ${styles[isMarked ? "" : "marked"]}`} role='button' onClick={() => setAsFavorite(movie)}>
               <Star color={isMarked ? "yellow" : "black"} /> {isMarked ? "Mark as favorite" : "Remove from favorites"}
             </Div>
           </Movie>
@@ -77,7 +82,7 @@ export const Details = () => {
         <h2>Recommendations:</h2>
         {recommendations ? (
           <Div row>
-            {recommendations?.map(({ id, title, poster_path }: any) => {
+            {recommendations?.map(({ id, title, poster_path }) => {
               return <MovieCard key={title + id} className={styles["recommendations"]} movie={{ id, title, poster_path }} />;
             })}
           </Div>

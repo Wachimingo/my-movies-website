@@ -1,1 +1,3 @@
-export * from "./Switch";
+import { lazy } from "react";
+
+export const Switch = lazy(() => import("./Switch"));

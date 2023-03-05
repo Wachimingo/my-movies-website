@@ -1,1 +1,3 @@
-export * from "./Search";
+import { lazy } from "react";
+
+export const Search = lazy(() => import("./Search"));

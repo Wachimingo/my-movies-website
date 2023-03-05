@@ -20,3 +20,5 @@ export const Switch = () => {
     </div>
   );
 };
+
+export default Switch;

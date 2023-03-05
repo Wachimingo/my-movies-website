@@ -26,8 +26,4 @@ const containerBuilder = (
   });
 };
 
-export const Page = (props: ContainerProps): JSX.Element => containerBuilder(DIV, props, styles["page"]);
-export const Center = (props: ContainerProps): JSX.Element => containerBuilder(DIV, props, styles["center"]);
-export const Div = (props: ContainerProps): JSX.Element => containerBuilder(DIV, props, undefined);
-export const Main = (props: ContainerProps): JSX.Element => containerBuilder(MAIN, props, undefined);
-export const Section = (props: ContainerProps): JSX.Element => containerBuilder(SECTION, props, undefined);
+export default containerBuilder;

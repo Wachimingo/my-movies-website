@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Div } from "../containers";
 import { Switch } from "../themeSwitch";
@@ -7,20 +7,23 @@ import styles from "./navbar.module.scss";
 export const Navbar = () => {
   const navigate = useNavigate();
   const [query, setQuery] = useState<string>("");
+  const [match, setMatch] = useState<boolean>(true);
+  const [open, setIsOpen] = useState<boolean>(true);
+
   const searchMovie = () => {
     if (query.trim() === "") return;
     navigate(`/search/${query.trim()}`);
   };
 
-  const x = window.matchMedia("(min-width: 522px)");
-  const resizedWindow = (x: any) => {
-    setIsOpen(x.matches);
-    setMatch(x.matches);
-  };
+  useEffect(() => {
+    const x = window.matchMedia("(min-width: 522px)");
+    const resizedWindow = (x: any) => {
+      setIsOpen(x.matches);
+      setMatch(x.matches);
+    };
 
-  x.addEventListener("change", resizedWindow);
-  const [match, setMatch] = useState(x.matches);
-  const [open, setIsOpen] = useState(true);
+    x.addEventListener("change", resizedWindow);
+  }, [match, open]);
 
   return (
     <nav className={styles["nav"]}>
@@ -53,7 +56,12 @@ export const Navbar = () => {
         <Div space='between' row fit className={styles["right"]}>
           <Switch />
           <svg
-            onClick={() => setIsOpen((prev) => !prev)}
+            onClick={() =>
+              setIsOpen((prev) => {
+                console.log(prev);
+                return !prev;
+              })
+            }
             className={`${styles["hamburguer"]}`}
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 448 512'
@@ -65,5 +73,3 @@ export const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;

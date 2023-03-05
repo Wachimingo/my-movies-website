@@ -1,13 +1,17 @@
-import React from "react";
-import { FORM, SUBMIT, SUBMIT_INPUT } from "./constants";
-//@ts-ignore
 import styles from "./form.module.scss";
 
-export const Form = ({ children, ...props }: any) => {
+type FormProps = {
+  children: React.ReactNode;
+  props?: any;
+};
+
+export const Form = ({ children, ...props }: FormProps): JSX.Element => {
   return (
-    <form className={styles[FORM]} {...props}>
+    <form className={styles["form"]} {...props}>
       {children}
-      <input className={styles[SUBMIT_INPUT]} type={SUBMIT} />
+      <input className={styles["submit-input"]} type='submit' />
     </form>
   );
 };
+
+export default Form;

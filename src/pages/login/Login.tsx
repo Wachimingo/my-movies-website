@@ -4,8 +4,8 @@ import { Form, Input } from "../common/form";
 import { useNavigate } from "react-router-dom";
 export const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const emailRe = /[\w-]+@([\w-]+\.)+[\w-]+/;
 
   useEffect(() => {
