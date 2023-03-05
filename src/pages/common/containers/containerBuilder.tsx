@@ -1,9 +1,10 @@
 //@ts-ignore
 import { jsx } from "react/jsx-runtime";
-import { COLUMN, DIV, MAIN, ROW, SECTION } from "./constants";
 //@ts-ignore
 import styles from "./container.module.scss";
 import { ContainerProps } from "./types";
+
+const COLUMN = "column";
 
 const containerBuilder = (
   HtmlElement: string,
@@ -12,7 +13,7 @@ const containerBuilder = (
 ): JSX.Element => {
   let direction: string = COLUMN;
   if (column) direction = COLUMN;
-  if (row) direction = ROW;
+  if (row) direction = "row";
   let width = "full-width";
   if (fit) width = "fit";
 
