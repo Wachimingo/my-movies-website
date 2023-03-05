@@ -9,3 +9,5 @@ export const NotFound = () => {
     </Page>
   );
 };
+
+export default NotFound;

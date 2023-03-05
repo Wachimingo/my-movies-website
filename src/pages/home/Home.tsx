@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Main, Page, Section } from "../common";
 import { MovieCard } from "../common/movieCard";
 import { baseUrl, type, apiKey } from "../constants";
+import { Loading } from "../common/loading";
 
 export const Home = () => {
-  const [movies, setMovies] = useState<any>();
+  const [movies, setMovies] = useState<any>(undefined);
 
   useEffect(() => {
     fetch(`${baseUrl}/movie/${type}?api_key=${apiKey}`)
@@ -17,11 +18,17 @@ export const Home = () => {
       <Main>
         <h1>Home</h1>
       </Main>
-      <Section row>
-        {movies?.map((movie: any) => {
-          return <MovieCard key={movie.title} movie={movie} />;
-        })}
-      </Section>
+      {movies ? (
+        <Section row>
+          {movies?.map((movie: any) => {
+            return <MovieCard key={movie.title} movie={movie} />;
+          })}
+        </Section>
+      ) : (
+        <Loading />
+      )}
     </Page>
   );
 };
+
+export default Home;

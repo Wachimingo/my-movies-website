@@ -4,8 +4,9 @@ import { Form, Input } from "../common/form";
 import { useNavigate } from "react-router-dom";
 export const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("eve.holt@reqres.in");
-  const [password, setPassword] = useState("cityslicka");
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const emailRe = /[\w-]+@([\w-]+\.)+[\w-]+/;
 
   useEffect(() => {
     if (localStorage.getItem("token") !== null) {
@@ -16,6 +17,7 @@ export const Login = () => {
   const submitLoginHandler = async (e: FormDataEvent) => {
     e.preventDefault();
     try {
+      if (!emailRe.test(email!)) throw Error("Invalid email format");
       const loginRes = await fetch("https://reqres.in/api/login", {
         method: "POST",
         headers: {
@@ -23,11 +25,12 @@ export const Login = () => {
         },
         body: JSON.stringify({ email, password })
       });
+      if (!loginRes.ok) throw Error("Incorrect email or password, please try again.");
       const data = await loginRes.json();
       localStorage.setItem("token", data.token);
       navigate("/home");
     } catch (error) {
-      console.log(error);
+      window.alert(error);
     }
   };
 
@@ -39,10 +42,12 @@ export const Login = () => {
       <Section>
         <h2>Login</h2>
         <Form id={"login-form"} onSubmit={(e: FormDataEvent) => submitLoginHandler(e)}>
-          <Input type='text' id='email' fieldName='Email' action={setEmail} value='eve.holt@reqres.in' />
-          <Input type='password' id='password' fieldName='Password' action={setPassword} value='cityslicka' />
+          <Input type='text' id='email' fieldName='Email' action={setEmail} required />
+          <Input type='password' id='password' fieldName='Password' action={setPassword} min='6' required />
         </Form>
       </Section>
     </Page>
   );
 };
+
+export default Login;

@@ -27,3 +27,5 @@ export const Favorites = () => {
     </Page>
   );
 };
+
+export default Favorites;
